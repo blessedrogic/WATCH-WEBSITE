@@ -1,0 +1,248 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background: darkgrey;
+}
+
+header{
+    width: clamp(50%, 80%, 100%);
+    height: clamp(50vh, 90vh, 100vh);
+    margin: 30px auto;
+}
+
+.navbar{
+    position: sticky;
+    top: 0; 
+    left: 0;
+    z-index: 999999;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: 20px;
+    transform: translateX(-2000px);
+    animation: drop 3s linear forwards alternate;
+}
+
+@keyframes drop{
+    10%{
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+
+}
+
+.navbar .logo h1{
+    color: white;
+    animation: color-changer 1s linear infinite alternate; 
+}
+
+@keyframes color-changer{
+    10%{
+        color: goldenrod;
+    }
+    
+    50%{
+        color: white;
+    }
+
+    100%{
+        color: black;
+    }
+}
+
+.navbar ul{
+    display: flex; 
+    list-style: none;
+    position: relative; 
+}
+
+.navbar ul li{
+    padding: 0 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none; 
+    color: white;
+    position: relative;
+}
+
+.navbar ul .underline a::after{
+    content: '';
+    width: 100%;
+    height: 2px; 
+    background: maroon; 
+    position: absolute; 
+    left: 0; 
+    top: 20px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+.navbar ul .underline a:hover::after{
+    transform-origin: right;
+    transform: scaleX(1);
+}
+
+button{
+    padding: 10px 20px;
+    background: black;
+    margin-left: 40px;
+    color: white; 
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+button:hover{
+    background: maroon;
+}
+
+.toggle-item{
+    position: relative;
+    background: rgba(255, 255, 255, 0.1); 
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.toggler a{
+    text-decoration: none; 
+    color: white;
+}
+
+.toggler i{
+    width: 50%;
+    text-align: right;    
+}
+
+.toggle-item ul{
+    width: clamp(110px, 100px, 100%);
+    height: clamp(160px, 100px, 100%);
+    padding-top: 3px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    position: absolute; 
+    left: 0px;   
+    top: 30px;
+    overflow: hidden;
+}
+
+.toggle-item ul li{
+    margin: 5px 0;
+    margin-left: -10px;
+}
+
+.toggle-item ul li a{
+    padding: 5px 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.toggle-item ul li a:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active{
+    display: none;
+}
+
+.hero{
+    width: clamp(50%, 100%, 100%);
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(/asset/images/gray-scale-shot-black-watch.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    color: white; 
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.hero .text{
+    transform: translateX(-500px);
+    animation: transform 1s linear forwards;
+}
+
+@keyframes transform{
+    to{
+        transform: translateX(0);
+    }
+}
+
+.hero .text h1{
+    font-size: clamp(20px, 0px, 200px);
+    opacity: 0;
+    color: darkgrey;
+    -webkit-text-stroke: 2px white;   
+    text-shadow: 5px 2px 2px black;
+    animation: display 2s linear forwards;
+}
+
+@keyframes display{
+    to{
+        opacity: 1;
+        font-size: clamp(20px, 130px, 200px);
+    }
+}
+
+.hero .text h2{
+    font-size: clamp(20px, 50px, 200px);
+}
+
+.hero .text p{
+    font-size: clamp(20px, 30px, 200px);
+}
+
+.hero .box{
+    width: clamp(50%, 50%, 100%);
+    height:  clamp(50%, 50%, 100%);
+    display: flex;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3), 
+                inset 10px 10px 10px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    justify-content: center; 
+    align-items: center;
+    
+}
+
+
+.hero .circle{
+    width: clamp(50%, 100%, 100%);
+    height:  clamp(50%, 100%, 100%);
+    background: rgba(0, 0, 0, 0.2); 
+    clip-path: circle(100%); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    position: relative;
+    animation: fill 1s linear forwards;
+}
+
+@keyframes fill{
+    to{
+        clip-path: circle(50%);
+    }
+}
+
+.hero .circle img{
+    width: 100%;
+}
+
+.hero button{
+    margin-left: 0;
+    margin-top: 10px;
+}
